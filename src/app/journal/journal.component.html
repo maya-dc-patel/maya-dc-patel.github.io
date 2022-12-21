@@ -1,0 +1,6 @@
+<div class="bg-gray-100"><div class="text-center text-4xl text-blue-500 font-bold">{{currentJournal?.name}}</div>
+<div class="text-center">by {{currentJournal?.owner}}</div>
+<app-journal-entry *ngFor="let entry of currentJournal?.entries"></app-journal-entry>
+<button (click)="addEntry()">Add entry</button>
+<!-- <a routerLink=".../add-entry"><button>Add Entry</button></a> -->
+</div>
