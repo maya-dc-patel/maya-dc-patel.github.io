@@ -1,7 +1,10 @@
-import { Ingredient } from "./ingredient";
+import { SafeResourceUrl } from '@angular/platform-browser';
+import { Entry } from './entry';
+import { Ingredient } from './ingredient';
 
 export interface Journal {
   name: String;
   owner: String;
-  ingredients: Ingredient[];
+  entries: Entry[];
+  imageUrl: SafeResourceUrl;
 }

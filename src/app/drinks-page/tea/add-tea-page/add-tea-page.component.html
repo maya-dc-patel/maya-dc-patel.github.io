@@ -1,0 +1,73 @@
+<div class="flex flex-col bg-gray-100 p-4">
+    <div class="text-2xl text-center">Add a Tea to the database</div>
+    <form [formGroup]="teaForm" (ngSubmit)="addTea()">
+      <div class="flex items-start flex-col gap-4 m-6 p-2 rounded-xl">
+        <div class="flex items-center gap-10 flex-row ">
+          <label>Name of Tea</label>
+          <div class="mt-1 relative rounded-md">
+            <input
+              type="text"
+              formControlName="name"
+              required="true"
+              placeholder="Tea name"
+              class=" focus:ring-indigo-500 focus:border-2 focus:border-indigo-500 block p-2 focus:ring-2 sm:text-sm border-gray-300 rounded-md"
+            />
+          </div>
+        </div>
+  
+        <div class=" flex gap-10 w-full ">
+          <label class="min-w-fit">List of Ingredients</label>
+  
+          <mat-form-field class="w-full" appearance="fill">
+            <mat-label>start typing ingredients</mat-label>
+            <mat-chip-list #chipList aria-label="Fruit selection">
+              <mat-chip *ngFor="let ing of ingredients" (removed)="remove(ing)">
+                {{ing}}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+              <input placeholder="New ingredient..."
+                     [matChipInputFor]="chipList"
+                     [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                     [matChipInputAddOnBlur]="addOnBlur"
+                     (matChipInputTokenEnd)="add($event)">
+            </mat-chip-list>
+          </mat-form-field>
+        </div>
+       
+
+        <div class=" flex gap-10 w-full ">
+            <label class="min-w-fit">List of Benefits</label>
+    
+            <mat-form-field class="w-full" appearance="fill">
+              <mat-label>start typing benefits</mat-label>
+              <mat-chip-list #chipList2 aria-label="Fruit selection">
+                <mat-chip *ngFor="let ben of benefits" (removed)="removeBenefit(ben)">
+                  {{ben}}
+                  <button matChipRemove>
+                    <mat-icon>cancel</mat-icon>
+                  </button>
+                </mat-chip>
+                <input placeholder="New benefit..."
+                       [matChipInputFor]="chipList2"
+                       [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                       [matChipInputAddOnBlur]="addOnBlur"
+                       (matChipInputTokenEnd)="addBenefit($event)">
+              </mat-chip-list>
+            </mat-form-field>
+          </div>
+         
+    
+        <button
+          [disabled]="teaForm.controls['errors']"
+          class="border p-2 shadow bg-white rounded-md hover:bg-green-200"
+          type="submit"
+        >
+          Add Tea
+        </button>
+       
+      </div>
+    </form>
+  </div>
+

@@ -1,0 +1,10 @@
+<div class="m-10 ">
+
+
+<form [formGroup]="entryForm" class="w-10/12 h-1/2">
+    <mat-form-field class="w-10/12 h-1/2">
+        <mat-label>Type entry content</mat-label>
+        <textarea formControlName="content" value="content" matInput placeholder="Ex. Today I feel..."></textarea>
+      </mat-form-field>
+
+</form>       <button mat-raised-button (click)="add()">Add</button></div>

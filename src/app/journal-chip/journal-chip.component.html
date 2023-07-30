@@ -1,0 +1,17 @@
+<p>journal-chip works!</p>
+<div class="bg-blue-100 py-10 rounded drop-shadow-lg flex flex-col items-center place-content-center place-items-center justify-center">
+    <!-- <div class="bg-blue-100 py-1slac0"> -->
+      <img [src]="journal.imageUrl">
+      <div class="text-xl text-bold">{{ name }}</div>
+      <div>{{ owner }}</div>
+      <button mat-raised-button class="border p-2 shadow bg-white rounded-md hover:bg-green-200" (click)="viewJournalEntries(name)">
+        View Journal
+      </button>
+
+      <div class="items-center"><mat-icon>delete</mat-icon>
+    
+      
+    </div>
+    
+
+    
